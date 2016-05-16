@@ -81,46 +81,46 @@ var obj02 = factory.getInstance('Animation');
 
 //4) 观察者
 
-function Publisher(){
-    this.listenrs = [];
-}
-
-Publisher.prototype = {
-    'addListener':function(listener){
-        this.listenrs.push(listener);
+    function Publisher(){
+        this.listenrs = [];
     }
-,
-    'removeListener':function(listener){
-            delete this.listenrs[listener];
-    }
+    
+    Publisher.prototype = {
+        'addListener':function(listener){
+            this.listenrs.push(listener);
+        }
     ,
-    'notify':function(obj){
-        for (var i = 0 ; i <this.listenrs.length ; i++){
-            var listener = this.listenrs[i];
-            if (typeof listener !== 'undefined'){
-                listener.process(obj);
+        'removeListener':function(listener){
+                delete this.listenrs[listener];
+        }
+        ,
+        'notify':function(obj){
+            for (var i = 0 ; i <this.listenrs.length ; i++){
+                var listener = this.listenrs[i];
+                if (typeof listener !== 'undefined'){
+                    listener.process(obj);
+                }
             }
         }
+    
+    };
+    
+    
+    function Subscriber(){
     }
-
-};
-
-
-function Subscriber(){
-}
-
-Subscriber.prototype = {
-    'process' : function(obj){
-        console.log(obj);
-    }
-};
-
-
-var publisher = new Publisher();
-publisher.addListener(new Subscriber());
-publisher.addListener(new Subscriber());
-publisher.notify({name : 'michaelqin',ageo:30});
-publisher.notify('xxx');
+    
+    Subscriber.prototype = {
+        'process' : function(obj){
+            console.log(obj);
+        }
+    };
+    
+    
+    var publisher = new Publisher();
+    publisher.addListener(new Subscriber());
+    publisher.addListener(new Subscriber());
+    publisher.notify({name : 'michaelqin',ageo:30});
+    publisher.notify('xxx');
 
 
 
