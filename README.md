@@ -53,23 +53,23 @@ function clone(Obj) {
 var obj = {name : "nex" , age : 33};
 
 //2)工厂 :使用原型prototype
-function Person() {
-    this.name = "nexl"
-}
-function Animation() {
-    this.name = "mortonl"
-}
-
-function Factory() {
-}
-
-Factory.prototype.getInstance = function (className) {
-    return eval('new' + className + '()');
-}
-
-var factory = new Factory();
-var obj01 = factory.getInstance('Person');
-var obj02 = factory.getInstance('Animation');
+    function Person() {
+        this.name = "nexl"
+    }
+    function Animation() {
+        this.name = "mortonl"
+    }
+    
+    function Factory() {
+    }
+    
+    Factory.prototype.getInstance = function (className) {
+        return eval('new' + className + '()');
+    }
+    
+    var factory = new Factory();
+    var obj01 = factory.getInstance('Person');
+    var obj02 = factory.getInstance('Animation');
 
 
 //关于eval:eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。
