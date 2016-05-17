@@ -166,6 +166,93 @@ JS笔试题:
     
  
 
+考察this
+
+JavaScript
+
+var length = 10;
+function fn() {
+  console.log(this.length);
+}
+
+var obj = {
+  length: 5,
+  method: function(fn) {
+    fn();
+    arguments[0]();
+  }
+};
+
+obj.method(fn, 1);
+
+var length = 10;
+function fn() {
+  console.log(this.length);
+}
+ 
+var obj = {
+  length: 5,
+  method: function(fn) {
+    fn();
+    arguments[0]();
+  }
+};
+ 
+obj.method(fn, 1);
+输出：10 2
+
+第一次输出10应该没有问题。我们知道取对象属于除了点操作符还可以用中括号，所以第二次执行时相当于arguments调用方法，this指向arguments，而这里传了两个参数，故输出arguments长度为2。
 
 
+
+图片懒加载:
+
+当页面滚动的距离大于图片距顶端的距离与窗口可视高度
+
+
+    简单的设置下图片的样式:
+    <style type="text/css">
+        img{
+            width: 600px;
+            height: 400px;
+            background-color: #CCCCCC;
+            position: absolute;
+            top: 1000px;
+        }
+    </style>
+    注意图片地址要写在 data-src 里
+    <body>
+            <img src="" data-src = "http://img2.zol.com.cn/product/98_940x705/577/ceDYOL5WHbbM.jpg"/>
+    </body>
+    js部分:
+    <script type="text/javascript">
+            var img = document.querySelector("img");
+            // 图片距顶端距离
+            var t = img.offsetTop;
+            // 窗口可视高度
+            var  h = document.documentElement.clientHeight;
+            // 显示图片所需要的最小自动距离
+            var distance = t - h;
+            // 滑动触发
+            window.onscroll = function () {
+                // 滑动时 顶端距离
+                var scrollTop = document.body.scrollTop || window.pageYOffset ||document.documentElement.scrollTop;
+                // 懒加载
+                if (scrollTop >= distance) {
+                    var imPath = img.getAttribute("data-src");
+                    img.setAttribute("src", imPath);
+                }
+            }
+    </script>
+    这里scrollTop是一个比较头疼的问题,又涉及到兼容的问题
+    (1)IE6/IE7/IE8：
+    对于没有doctype声明的页面里可以使用  document.body.scrollTop来获取 scrollTop高度 ；
+    有声明的可以直接使用document.documentElement.scrollTop；
+    (2)Firefox:
+    直接用document.documentElement.scrollTop ；
+    (3)chrome:
+    document.body.scrollTop和document.documentElement.scrollTop ；可能都取不到值
+    (4)Safari:
+    有自己获取scrollTop的函数 ： window.pageYOffset ；
+    所以保险的写法就是var scrollTop = document.body.scrollTop || window.pageYOffset ||document.documentElement.scrollTop;, 不管你是啥浏览器我都兼容.yi
 
