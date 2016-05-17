@@ -125,7 +125,46 @@ var obj = {name : "nex" , age : 33};
 
 
 
+JS笔试题:
 
+//自定义回调
+
+
+    function testCallback(callback) {  
+        alert('come in!');  
+        callback();  
+    }  
+      
+    /** 
+     * 被回调的函数 
+     */  
+    function a() {  
+        alert('a');  
+    }  
+      
+    /** 
+     * 开始测试方法 
+     */  
+    function start() {  
+        testCallback(a);  
+    }  
+    
+    
+    或者
+    function testCallback(callback(a,b)){
+        callback("aaa","bbb");
+    }
+    
+    function c(a,b){
+        alert(a+b);
+    }
+    
+    function test(){
+        testCallback(c(a,b));
+    }
+    
+    
+ 
 
 
 
