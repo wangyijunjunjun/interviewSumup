@@ -272,7 +272,9 @@ render : function (){
     return <div className={classes}>Great , I'll be there.</div>
     
     
+JS调度后台任务 : requestIdleCallback
 
+http://www.tuicool.com/articles/ABRrMjF
 
 
 
