@@ -256,3 +256,24 @@ obj.method(fn, 1);
     有自己获取scrollTop的函数 ： window.pageYOffset ；
     所以保险的写法就是var scrollTop = document.body.scrollTop || window.pageYOffset ||document.documentElement.scrollTop;, 不管你是啥浏览器我都兼容.yi
 
+AngularJS:本质是后端的模板前端化了,其实也就是在前端写模板,填充数据
+
+React:组件化,有点类似Django,由多个app(Component)组成整个应用,每个app(Component)都有固定的文件(代码)组织
+
+写一段React代码开开胃(类名操作classSet):
+render : function (){
+    var cx = React.addons.classSet;
+    var classes = cx ({
+        'message':true,
+        'message-important':this.props.isImportant,
+        'message-read':this.props.isRead
+    });
+    
+    return <div className={classes}>Great , I'll be there.</div>
+    
+    
+
+
+
+
+
