@@ -276,6 +276,21 @@ JS调度后台任务 : requestIdleCallback
 
 http://www.tuicool.com/articles/ABRrMjF
 
+18号晚上电面准备:
+
+1)跨域
+2)闭包
+3)原型
+4)参数arguments
+5)上下文this
+6)apply,call
+7)性能
+8)HTML5,CSS新特型
+9)构造函数(constructors)
+10)关于浮动
 
 
 
+)react
+
+)angularjs
